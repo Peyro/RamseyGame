@@ -46,14 +46,14 @@
   </style>
 </head>
 <body>
-
+  
+<svg id="graph"></svg>
 <div id="leveltext"></div>
-<svg id="svg"></svg>
 
-<ul id="Buttons" class="nav">
-  <li>Previous Level</li>
-  <li>Reset Level </li>
-  <li>Next Level</li> 
+<ul id="buttons" class="nav">
+  <li id="prev">Previous Level</li>
+  <li id="reset">Reset Level </li>
+  <li id="next">Next Level</li> 
 </ul>
   
 <script>
@@ -66,8 +66,6 @@ if(urlParams.has('level'))
   level = parseInt(urlParams.get('level'));
 }
 
-
-
 // Configuration
 const width = Math.min(window.innerWidth, 800);
 const height = Math.min(window.innerHeight, 800);
@@ -76,19 +74,18 @@ var x = d3.scaleLinear().domain([-1.1,1.1]).range([0, size]);
 var y = d3.scaleLinear().domain([-1.1,1.1]).range([size, 0]);
 
 
-const svg = d3.select("#svg");
-svg.attr("width", size).attr("height", size);
+const graph = d3.select("#graph");
+graph.attr("width", size).attr("height", size);
 const leveltext = d3.select("#leveltext");
 leveltext.style("width", size+"px");
-
 
 var numVertices = 0;
 if(! isNaN(level)) {
   numVertices = level+2;
-  svg.classed("hidden", false);
+  graph.classed("hidden", false);
   leveltext.classed("hidden", true);
 } else {
-  svg.classed("hidden", true);
+  graph.classed("hidden", true);
   leveltext.classed("hidden", false);
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
   Colour each edge red or blue and avoid monochromatic triangles!<br/>\
@@ -149,7 +146,7 @@ function checkWin() {
 }
 
 // Add lines for edges
-const edge = svg.selectAll(".edge")
+const edge = graph.selectAll(".edge")
   .data(edges)
   .join("line")
   .attr("class", "edge")
@@ -177,7 +174,7 @@ const edge = svg.selectAll(".edge")
 
 
 // Add circles for vertices
-const vertex = svg.selectAll(".vertex")
+const vertex = graph.selectAll(".vertex")
   .data(vertices)
   .enter().append("circle")
   .attr("class", "vertex")
