@@ -84,7 +84,10 @@ if(! isNaN(level)) {
   numVertices = level+2;
   graph.classed("hidden", false);
   leveltext.classed("hidden", true);
-} else {
+  if(level==1){
+    #buttons.padding:-10px 0;
+  }
+} else {  
   graph.classed("hidden", true);
   leveltext.classed("hidden", false);
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
