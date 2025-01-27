@@ -78,6 +78,7 @@ const graph = d3.select("#graph");
 graph.attr("width", size).attr("height", size);
 const leveltext = d3.select("#leveltext");
 leveltext.style("width", size+"px");
+const buttons = d3.select("#buttons");
 
 var numVertices = 0;
 if(! isNaN(level)) {
@@ -85,7 +86,7 @@ if(! isNaN(level)) {
   graph.classed("hidden", false);
   leveltext.classed("hidden", true);
    if(level==1){
-     #buttons{margin:-150px};
+     buttons.attr("margin:,-150px);
    }
 } else {  
   graph.classed("hidden", true);
