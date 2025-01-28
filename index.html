@@ -88,10 +88,7 @@ if(! isNaN(level)) {
   numVertices = level+2;
   graph.classed("hidden", false);
   leveltext.classed("hidden", true);
-  
-  let nextAnchor = document.createElement("a");
-  nextAnchor.setAttribute('href', '?level=${level+1}')
-  #next.appendChild(nextAnchor);
+  nextButton.attr("href", '?level=${level+1}')
   
   if(level==1){
     buttons.style("margin", "-150px");
