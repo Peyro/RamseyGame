@@ -51,7 +51,7 @@
 <ul id="buttons" class="nav">
   <li id="prev">Previous Level</li>
   <li id="reset">Reset Level </li>
-  <li id="next"><a href='?level=${level+1}'>Next Level</a></li> 
+  <li id="next">Next Level</li> 
 </ul>  
   
 <div id="leveltext"></div>
@@ -81,11 +81,17 @@ const leveltext = d3.select("#leveltext");
 leveltext.style("width", size+"px");
 const buttons = d3.select("#buttons");
 
+
 var numVertices = 0;
 if(! isNaN(level)) {
   numVertices = level+2;
   graph.classed("hidden", false);
   leveltext.classed("hidden", true);
+  
+  let nextAnchor = document.createElement("a");
+  nextAnchor.setAttribute('href', '?level=${level+1}')
+  #next.appendChild(nextAnchor);
+  
   if(level==1){
     buttons.style("margin", "-150px");
   }
