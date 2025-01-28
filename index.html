@@ -49,9 +49,9 @@
   
 <svg id="graph"></svg>
 <ul id="buttons" class="nav">
-  <li id="prev">Previous Level</li>
-  <li id="reset">Reset Level </li>
-  <li id="next">Next Level</li> 
+  <li id="prev"></li>
+  <li id="reset"></li>
+  <li id="next"></li> 
 </ul>  
   
 <div id="leveltext"></div>
@@ -80,7 +80,11 @@ graph.attr("width", size).attr("height", size);
 const leveltext = d3.select("#leveltext");
 leveltext.style("width", size+"px");
 const buttons = d3.select("#buttons");
+
+const prevButton = d3.select("#prev");
+const resetButton = d3.select("#reset");
 const nextButton = d3.select("#next");
+  
 
 
 var numVertices = 0;
@@ -88,13 +92,20 @@ if(! isNaN(level)) {
   numVertices = level+2;
   graph.classed("hidden", false);
   leveltext.classed("hidden", true);
-  nextButton.html(`<a href='?level=${level+1}'></a>`)
+
+  resetButton.html(`<a href='?level=${level}'>Reset Level</a>`)
+  nextButton.html(`<a href='?level=${level+1}'>Next Level</a>`)
+  
   
   if(level==1){
     buttons.style("margin", "-150px");
+    prevButton.html(`<a href='?'>Previous Level</a>`;
+  } else {
+    prevButton.html(`<a href='?level=${level-1}'>Previous Level</a>`;
   }
 } else {  
   graph.classed("hidden", true);
+  prevButton.html(`<a href='?'>Previous Level</a>`;
   leveltext.classed("hidden", false);
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
   Colour each edge red or blue and avoid monochromatic triangles!<br/>\
