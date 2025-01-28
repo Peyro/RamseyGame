@@ -49,9 +49,9 @@
   
 <svg id="graph"></svg>
 <ul id="buttons" class="nav">
-  <li id="prev">Prev</li>
-  <li id="reset">res</li>
-  <li id="next">neeeext</li> 
+  <li id="prev"></li>
+  <li id="reset"></li>
+  <li id="next"></li> 
 </ul>  
   
 <div id="leveltext"></div>
@@ -99,13 +99,13 @@ if(! isNaN(level)) {
   
   if(level==1){
     buttons.style("margin", "-150px");
-    prevButton.html(`<a href='?'>Previous Level</a>`;
+    prevButton.html(`<a href='?'>Previous Level</a>`);
   } else {
-    prevButton.html(`<a href='?level=${level-1}'>Previous Level</a>`;
+    prevButton.html(`<a href='?level=${level-1}'>Previous Level</a>`);
   }
 } else {  
   graph.classed("hidden", true);
-  prevButton.html(`<a href='?'>Previous Level</a>`;
+  prevButton.html(`<a href='?'>Previous Level</a>`);
   leveltext.classed("hidden", false);
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
   Colour each edge red or blue and avoid monochromatic triangles!<br/>\
