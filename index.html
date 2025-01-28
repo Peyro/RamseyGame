@@ -68,8 +68,8 @@ if(urlParams.has('level'))
 }
 
 // Configuration
-const width = Math.min(window.innerWidth, 800);
-const height = Math.min(window.innerHeight, 800);
+const width = Math.min(window.innerWidth, 600); //800
+const height = Math.min(window.innerHeight, 600); //800
 const size = Math.min(width, height);
 var x = d3.scaleLinear().domain([-1.1,1.1]).range([0, size]);
 var y = d3.scaleLinear().domain([-1.1,1.1]).range([size, 0]);
