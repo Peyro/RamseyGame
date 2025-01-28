@@ -60,7 +60,9 @@
 </ul>  
   
 <div id="leveltext"></div>
-
+<ul class="nav">
+  <li id="start"><a href='?level=1'>Start Game</a></li>
+</ul>  
   
 <script>
  // get level number from url
@@ -100,17 +102,11 @@ var numVertices = 0;
 if(isNaN(level)) 
 {  
   graph.classed("hidden", true);
-  
-  prevButton.html(`<a href='?'>`+prevText+`</a>`);
-  resetButton.html(`<a href='?'>`+resetText+`</a>`);
-  nextButton.html(`<a href='?level=1'>`+nextText+`</a>`);
-  
   buttons.classed("hidden", true);
   
   leveltext.classed("hidden", false);
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
-  Colour each edge red or blue and avoid monochromatic triangles!<br/>\
-  <a href='?level=1'>Start level 1</a>");
+  Colour each edge red or blue and avoid monochromatic triangles!<br/>");
   
 } else { /*other levels*/
   numVertices = level+2;
@@ -203,7 +199,7 @@ const edge = graph.selectAll(".edge")
     console.log(d.colour);
     if(checkWin()) {
       leveltext.classed("hidden", false);
-      leveltext.html(`<h1>You won this level!</h1> <a href='?level=${level+1}'>Start level ${level+1}</a>`);
+      leveltext.html(`<h1>You won this level!</h1>`);
     };
   })
   ;
