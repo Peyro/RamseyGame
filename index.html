@@ -127,8 +127,8 @@ if(isNaN(level))
 } else { /*other levels*/
   numVertices = level+2;
 
-
-  leveltext.html("<h3>Level "+level+"</h3>");
+  leveltext.classed("hidden", true);
+  //leveltext.html("<h3>Level "+level+"</h3>");
   
   graph.classed("hidden", false);
   startButton.classed("hidden", true);
