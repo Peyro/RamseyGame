@@ -80,6 +80,7 @@ graph.attr("width", size).attr("height", size);
 const leveltext = d3.select("#leveltext");
 leveltext.style("width", size+"px");
 const buttons = d3.select("#buttons");
+const nextButton = d3.select("#next");
 
 
 var numVertices = 0;
@@ -90,7 +91,7 @@ if(! isNaN(level)) {
   
   let nextAnchor = document.createElement("a");
   nextAnchor.setAttribute('href', '?level=${level+1}')
-  #next.appendChild(nextAnchor);
+  nextButton.appendChild(nextAnchor);
   
   if(level==1){
     buttons.style("margin", "-150px");
