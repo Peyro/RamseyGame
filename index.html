@@ -74,12 +74,15 @@ const size = Math.min(width, height);
 var x = d3.scaleLinear().domain([-1.1,1.1]).range([0, size]);
 var y = d3.scaleLinear().domain([-1.1,1.1]).range([size, 0]);
 
-
 const graph = d3.select("#graph");
 graph.attr("width", size).attr("height", size);
 const leveltext = d3.select("#leveltext");
 leveltext.style("width", size+"px");
 const buttons = d3.select("#buttons");
+
+const prevText = "Previous Level";
+const nextText = "Next Level";
+const resetText = "Reset Level";
 
 const prevButton = d3.select("#prev");
 const resetButton = d3.select("#reset");
@@ -99,13 +102,17 @@ if(! isNaN(level)) {
   
   if(level==1){
     buttons.style("margin", "-150px");
-    prevButton.html(`<a href='?'>Previous Level</a>`);
+    prevButton.html(`<a href='?'>{prevText}</a>`);
   } else {
-    prevButton.html(`<a href='?level=${level-1}'>Previous Level</a>`);
+    prevButton.html(`<a href='?level=${level-1}'>`+prevText+`</a>`);
   }
 } else {  
   graph.classed("hidden", true);
+  
   prevButton.html(`<a href='?'>Previous Level</a>`);
+  resetButton.html(`<a href='?'>Reset Level</a>`);
+  nextButton.html(`<a href='?level=1'>Next Level</a>`);
+  
   leveltext.classed("hidden", false);
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
   Colour each edge red or blue and avoid monochromatic triangles!<br/>\
