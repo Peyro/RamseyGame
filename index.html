@@ -91,22 +91,9 @@ const nextButton = d3.select("#next");
 
 
 var numVertices = 0;
-if(! isNaN(level)) {
-  numVertices = level+2;
-  graph.classed("hidden", false);
-  leveltext.classed("hidden", true);
-
-  resetButton.html(`<a href='?level=${level}'>Reset Level</a>`);
-  nextButton.html(`<a href='?level=${level+1}'>Next Level</a>`);
-  
-  
-  if(level==1){
-    buttons.style("margin", "-150px");
-    prevButton.html(`<a href='?'>{prevText}</a>`);
-  } else {
-    prevButton.html(`<a href='?level=${level-1}'>`+prevText+`</a>`);
-  }
-} else {  
+//Intro Page
+if(isNaN(level)) 
+{  
   graph.classed("hidden", true);
   
   prevButton.html(`<a href='?'>Previous Level</a>`);
@@ -117,8 +104,22 @@ if(! isNaN(level)) {
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
   Colour each edge red or blue and avoid monochromatic triangles!<br/>\
   <a href='?level=1'>Start level 1</a>");
-}
+} else { /*other levels*/
+  numVertices = level+2;
+  graph.classed("hidden", false);
+  leveltext.classed("hidden", true);
 
+  resetButton.html(`<a href='?level=${level}'>Reset Level</a>`);
+  nextButton.html(`<a href='?level=${level+1}'>Next Level</a>`);
+  
+  
+  if(level==1){
+    //buttons.style("margin", "-150px");
+    prevButton.html(`<a href='?'>{prevText}</a>`);
+  } else {
+    prevButton.html(`<a href='?level=${level-1}'>`+prevText+`</a>`);
+  }
+} 
 
 
 // Generate graph data
