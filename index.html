@@ -64,7 +64,7 @@
 </ul>  
   
 <div id="leveltext"></div>
-<ul class="nav">
+<ul id="startButton" class="nav">
   <li id="start"><a href='?level=1'>Start Game</a></li>
 </ul>  
   
@@ -90,6 +90,7 @@ graph.attr("width", size).attr("height", size);
 const leveltext = d3.select("#leveltext");
 leveltext.style("width", size+"px");
 const buttons = d3.select("#buttons");
+const startButton = d3.select(#startButton)
 
 const prevText = "Previous Level";
 const nextText = "Next Level";
@@ -116,6 +117,7 @@ if(isNaN(level))
   numVertices = level+2;
   graph.classed("hidden", false);
   leveltext.classed("hidden", true);
+  startButton.classed("hidden", true);
 
   resetButton.html(`<a href='?level=${level}'>`+resetText+`</a>`);
   nextButton.html(`<a href='?level=${level+1}'>`+nextText+`</a>`);
