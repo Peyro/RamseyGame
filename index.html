@@ -105,6 +105,8 @@ if(isNaN(level))
   resetButton.html(`<a href='?'>`+resetText+`</a>`);
   nextButton.html(`<a href='?level=1'>`+nextText+`</a>`);
   
+  prevButton.classed("hidden", true);
+  
   leveltext.classed("hidden", false);
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
   Colour each edge red or blue and avoid monochromatic triangles!<br/>\
