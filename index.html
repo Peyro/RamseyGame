@@ -83,7 +83,7 @@
 </ul>  
   
 <div id="leveltext"></div>  
-<svg id="triangles"><image xlink:href="ForbiddenConfig.png" width="600" /></svg>
+<image id="triangles" xlink:href="ForbiddenConfig.png" width="600" /></image>
 <ul id="startButton" class="nav">
   <li id="start"><a href='?level=1'>Start Game</a></li>
 </ul>  
@@ -114,7 +114,7 @@ const buttons = d3.select("#buttons");
 const startButton = d3.select("#startButton");
 
 const forbiddenTriangles = d3.select("#triangle");
-forbiddenTriangles.attr("width", size);
+// forbiddenTriangles.attr("width", size);
   
 const prevText = "Previous Level";
 const resetText = "Reset";
