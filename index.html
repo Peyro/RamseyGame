@@ -265,7 +265,7 @@ const c = nextButton.on("click", () => {
       if(check[1]==0){ //there is a white edge
         id = [check[2],check[3]];
         var e = document.getElementById(id);
-        d3.select(e).classed("highlight",true); //wrks, but we would need to remove highlight
+        d3.select(e).classed("highlightwhite",true); //wrks, but we would need to remove highlight
       } else
       {
         id1 = [check[2],check[3]];
@@ -274,9 +274,10 @@ const c = nextButton.on("click", () => {
         var e1 = document.getElementById(id1);
         var e2 = document.getElementById(id2);
         var e3 = document.getElementById(id3);
-        d3.select(e1).classed("highlight",true);
-        d3.select(e2).classed("highlight",true);
-        d3.select(e3).classed("highlight",true);
+        if(check[1]==1){txthigh = "highlightblue"}else{txthigh = "highlightred"}
+        d3.select(e1).classed(txthigh,true);
+        d3.select(e2).classed(txthigh,true);
+        d3.select(e3).classed(txthigh,true);
       }
     };
 });
