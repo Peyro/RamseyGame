@@ -265,7 +265,7 @@ const c = nextButton.on("click", () => {
         var e = document.getElementById(id);
         //e.classed("highlight",true);
         console.log(e);
-        e.classed("green", true); //test
+        d3.select(e).classed("green", true); //test
       } 
     };
 });
