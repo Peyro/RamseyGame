@@ -23,7 +23,9 @@
     .green { stroke: green;} 
     .vertex { fill: #999;}
     .hidden {display:none;}
-    .highlight{filter: drop-shadow(0 0 10px rgb(255, 0, 0));}
+    .highlightred{filter: drop-shadow(0 0 10px rgb(255, 0, 0));}
+    .highlightblue{filter: drop-shadow(0 0 10px rgb(255, 0, 0));}
+    .highlightwhite{filter: drop-shadow(0 0 10px rgb(255, 0, 0));}
 
     .nav {
       list-style-type: none;
@@ -205,7 +207,7 @@ function checkWin() { //return boolean,color,e0,e1,e2
         var e2 = edgeByIndex[k*numVertices+i];
         if(e0.colour == e1.colour && e0.colour == e2.colour)
         {
-          return [false,1,i,j,k]; 
+          return [false,e0.colour,i,j,k]; 
         }
       }
     }
@@ -253,20 +255,29 @@ const c = nextButton.on("click", () => {
     const check = checkWin(); //boolean, color,i,j,k
     if(check[0]) {
       leveltext.classed("hidden", false);
-      leveltext.html(`<h2>You won this level!</h2>`);
+      leveltext.html(`<h3>You won this level!</h3>`);
       nextButton.classed("disabled",true);
       nextButton.html(`<a href='?level=${level+1}'>`+nextText+`</a>`);
     } else {
       leveltext.classed("hidden", false);
-      leveltext.html(`<h2>No you're not!</h2>`);   
+      leveltext.html(`<h3>No you're not!</h3>`);   
       console.log(check);
       if(check[1]==0){ //there is a white edge
         id = [check[2],check[3]];
         var e = document.getElementById(id);
-        console.log(e);
-        // d3.select(e).classed("green", true); //test
-        d3.select(e).classed("highlight",true);
-      } 
+        d3.select(e).classed("highlight",true); //wrks, but we would need to remove highlight
+      } else
+      {
+        id1 = [check[2],check[3]];
+        id2 = [check[2],check[4]];
+        id3 = [check[3],check[4]];
+        var e1 = document.getElementById(id1);
+        var e2 = document.getElementById(id2);
+        var e3 = document.getElementById(id3);
+        d3.select(e1).classed("highlight",true);
+        d3.select(e2).classed("highlight",true);
+        d3.select(e3).classed("highlight",true);
+      }
     };
 });
 
