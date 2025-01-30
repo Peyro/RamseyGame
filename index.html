@@ -127,6 +127,12 @@ const resetButton = d3.select("#reset");
 const nextButton = d3.select("#next");
   
 var numVertices = 0;
+
+//these will contains the edges we highlight in case of error
+var ed0;
+var ed1;
+var ed2;
+var ed3;
   
 //Intro Page
 if(isNaN(level)) 
@@ -271,19 +277,20 @@ const c = nextButton.on("click", () => {
     } else {
       leveltext.classed("hidden", false);
       leveltext.html(`<h3>No you're not!</h3>`);   
-      console.log(check);
       if(check[1]==0){ //there is a white edge
         id = [check[2],check[3]];
-        var ed = document.getElementById(id);
-        d3.select(ed).classed("highlightwhite",true); //wrks, but we would need to remove highlight
+        ed0 = document.getElementById(id);
+        d3.select(ed0).classed("highlightwhite",true); //wrks, but we would need to remove highlight
       } else
       {
         id1 = [check[2],check[3]];
         id2 = [check[2],check[4]];
         id3 = [check[3],check[4]];
-        var ed1 = document.getElementById(id1);
-        var ed2 = document.getElementById(id2);
-        var ed3 = document.getElementById(id3);
+
+        //ed's have been decalred globally
+        ed1 = document.getElementById(id1);
+        ed2 = document.getElementById(id2);
+        ed3 = document.getElementById(id3);
         //applying red highliight to blue, and vice-versa
         if(check[1]==1){txthigh = "highlightred"}else{txthigh = "highlightblue"}
         d3.select(ed1).classed(txthigh,true);
