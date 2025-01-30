@@ -262,7 +262,8 @@ const c = nextButton.on("click", () => {
       if(check[1]==0){ //there is a white edge
         id = [check[2],check[3]]
         var e = document.getElementById(id);
-        e.classed("highlight",true);
+        //e.classed("highlight",true);
+        e.attr("stroke", "green"); //test
       } 
     };
 });
