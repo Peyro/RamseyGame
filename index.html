@@ -47,6 +47,10 @@
         pointer-events:none;
     }    
 
+    .highlight{
+      filter: drop-shadow(0 0 10px rgb(255, 0, 0));
+    }
+
     a {
       text-decoration: none;
       color: white;
@@ -69,13 +73,6 @@
       bottom: 10px;
       right: 10px;      
     }
-
-  .imageTriangle {
-      background-image: url('ForbiddenConfig.png');
-      background-repeat: no-repeat;
-      width: 600px;
-      height: 200px;
-  }    
     
   </style>
 </head>
@@ -189,12 +186,12 @@ for(var i=0; i < numVertices-1; i++) {
 }
 
 // function to test if won
-function checkWin() {
+function checkWin() { //return boolean,color,e0,e1,e2
   for(var i=0; i < numVertices-1; i++) {
     for(var j=i+1; j < numVertices; j++) {
       var e0 = edgeByIndex[i*numVertices+j];
       if(e0.colour == 0) {
-        return false;
+        return [false,0,e0,0,0]; 
       }
     }
   }
@@ -207,13 +204,13 @@ function checkWin() {
         var e2 = edgeByIndex[k*numVertices+i];
         if(e0.colour == e1.colour && e0.colour == e2.colour)
         {
-          return false;
+          return [false,e0.colour,e0,e1,e2]; 
         }
       }
     }
   }
 
-  return true;
+  return [true,0,0,0,0];
 }
 
 // Add lines for edges
@@ -251,14 +248,16 @@ const vertex = graph.selectAll(".vertex")
 
 //(I'm done/next level) button code
 const c = nextButton.on("click", () => {
-    if(checkWin()) {
+    const { result, color, e0, e1, e2 } = checkWin();
+    if(result) {
       leveltext.classed("hidden", false);
       leveltext.html(`<h2>You won this level!</h2>`);
       nextButton.classed("disabled",true);
       nextButton.html(`<a href='?level=${level+1}'>`+nextText+`</a>`);
     } else {
       leveltext.classed("hidden", false);
-      leveltext.html(`<h2>No you're not!</h2>`);      
+      leveltext.html(`<h2>No you're not!</h2>`);   
+      console.log( color, e0, e1, e2)
     };
 });
 
