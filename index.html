@@ -218,7 +218,7 @@ const edge = graph.selectAll(".edge")
   .data(edges)
   .join("line")
   .attr("class", "edge")
-  .attr("id",d=>(d.vertexi,d.vertexj))  
+  .attr("id",d=>[d.vertexi,d.vertexj])  //I need an id because I want to access that edge to highligh
   .attr("x1", d=>x(d.from.x))
   .attr("x2", d=>x(d.to.x))
   .attr("y1", d=>y(d.from.y))
