@@ -83,7 +83,7 @@
 </ul>  
   
 <div id="leveltext"></div>  
-<svg id="triangles"></svg>
+<svg id="triangles"><image xlink:href="ForbiddenConfig.png" width="100" height="100" /></svg>
 <ul id="startButton" class="nav">
   <li id="start"><a href='?level=1'>Start Game</a></li>
 </ul>  
@@ -136,12 +136,7 @@ if(isNaN(level))
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
   Colour each edge red or blue and avoid monochromatic triangles!<br/>");
 
-  forbiddenTriangles.append("svg:image")
-    .attr('x', -9)
-    .attr('y', -12)
-    .attr('width', 20)
-    .attr('height', 24)
-    .attr("xlink:href", "ForbiddenConfig.png");
+
   
 } else { /*other levels*/
   numVertices = level+2;
