@@ -20,6 +20,7 @@
           -webkit-tap-highlight-color: rgba(0,0,0,0);}
     .blue { stroke: blue;}
     .red { stroke: red;}
+    .green { stroke: green;} //tests
     .vertex { fill: #999;}
     .hidden {display:none;}
     .highlight{filter: drop-shadow(0 0 10px rgb(255, 0, 0));}
@@ -264,7 +265,7 @@ const c = nextButton.on("click", () => {
         var e = document.getElementById(id);
         //e.classed("highlight",true);
         console.log(e)
-        e.attr("stroke", "green"); //test
+        e.classed("green", true); //test
       } 
     };
 });
