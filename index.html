@@ -249,7 +249,7 @@ const vertex = graph.selectAll(".vertex")
 
 //(I'm done/next level) button code
 const c = nextButton.on("click", () => {
-    const check = checkWin(); //boolean, color, e0,e1,e2
+    const check = checkWin(); //boolean, color,i,j,k
     if(check[0]) {
       leveltext.classed("hidden", false);
       leveltext.html(`<h2>You won this level!</h2>`);
@@ -259,7 +259,9 @@ const c = nextButton.on("click", () => {
       leveltext.classed("hidden", false);
       leveltext.html(`<h2>No you're not!</h2>`);   
       console.log(check);
-      console.log(graph)
+      if(check[1]==0){ //there is a white edge
+        #[check[2],check3]].classed("highlight",true);
+      } 
     };
 });
 
