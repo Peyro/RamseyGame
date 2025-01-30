@@ -246,7 +246,7 @@ const edge = graph.selectAll(".edge")
 
     //we remove the highlight class
     //if ed,ed1ed2ed3 are defined, it's from highlight
-    try {d3.select(ed).classed("highlightwhite",false); } catch(e) {};
+    try {d3.select(ed0).classed("highlightwhite",false);} catch(e) {};
     try {d3.select(ed1).classed("highlightred",false);  } catch(e) {};   
     try {d3.select(ed2).classed("highlightred",false);  } catch(e) {}; 
     try {d3.select(ed3).classed("highlightred",false);  } catch(e) {};
