@@ -221,6 +221,8 @@ const edge = graph.selectAll(".edge")
   .on("click", function(event,d) {
     leveltext.classed("hidden", false);
     leveltext.html("");
+    nextButton.classed("disabled",false);
+    nextButton.html(doneText);
     d.colour = (d.colour + 1)%3;
     d3.select(this)
       .classed("blue", d => d.colour == 1)
@@ -242,9 +244,12 @@ const vertex = graph.selectAll(".vertex")
 const c = nextButton.on("click", () => {
     if(checkWin()) {
       leveltext.classed("hidden", false);
-      leveltext.html(`<h1>You won this level!</h1>`);
+      leveltext.html(`<h2>You won this level!</h2>`);
       nextButton.classed("disabled",true);
       nextButton.html(`<a href='?level=${level+1}'>`+nextText+`</a>`);
+    } else {
+      leveltext.classed("hidden", false);
+      leveltext.html(`<h2>No you're not!</h2>`);      
     };
 });
 
