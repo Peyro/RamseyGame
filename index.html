@@ -132,6 +132,13 @@ if(isNaN(level))
   //leveltext.classed("hidden", false);
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
   Colour each edge red or blue and avoid monochromatic triangles!<br/>");
+
+  nodeEnter.append("svg:image")
+    .attr('x', -9)
+    .attr('y', -12)
+    .attr('width', 20)
+    .attr('height', 24)
+    .attr("xlink:href", "ForbiddenConfig");
   
 } else { /*other levels*/
   numVertices = level+2;
