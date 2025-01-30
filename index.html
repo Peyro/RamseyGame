@@ -69,6 +69,13 @@
       bottom: 10px;
       right: 10px;      
     }
+
+  .imageTriangle {
+      background-image: ForbiddenConfig.png;
+      background-repeat: no-repeat;
+      width: 600px;
+      height: 200px;
+  }    
     
   </style>
 </head>
@@ -83,6 +90,7 @@
 </ul>  
   
 <div id="leveltext"></div>  
+<div class="imageTriangle"></div>
 <ul id="startButton" class="nav">
   <li id="start"><a href='?level=1'>Start Game</a></li>
 </ul>  
@@ -133,7 +141,6 @@ if(isNaN(level))
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
   Colour each edge red or blue and avoid monochromatic triangles!<br/>");
   
-  //<img src="ForbiddenConfig.png" alt="triangles" width="500" height="200">
 
   
 } else { /*other levels*/
