@@ -22,6 +22,7 @@
     .red { stroke: red;}
     .vertex { fill: #999;}
     .hidden {display:none;}
+    /*     HERE Add a nex class for edges to highligh them, then use edge.classed() */
 
     .nav {
       list-style-type: none;
@@ -105,16 +106,15 @@ const buttons = d3.select("#buttons");
 const startButton = d3.select("#startButton");
 
 const prevText = "Previous Level";
-const nextText = "Next Level";
+const nextText = "I'm done!"; //Next level is used for "I'm done" and "Next Level"
 const resetText = "Reset";
 
 const prevButton = d3.select("#prev");
 const resetButton = d3.select("#reset");
 const nextButton = d3.select("#next");
   
-
-
 var numVertices = 0;
+  
 //Intro Page
 if(isNaN(level)) 
 {  
@@ -135,7 +135,8 @@ if(isNaN(level))
   startButton.classed("hidden", true);
 
   resetButton.html(`<a href='?level=${level}'>`+resetText+`</a>`);
-  nextButton.html(`<a href='?level=${level+1}'>`+nextText+`</a>`);
+  // nextButton.html(`<a href='?level=${level+1}'>`+nextText+`</a>`);
+  nextButton.html(nextText);
   
   
   if(level==1){
@@ -216,10 +217,11 @@ const edge = graph.selectAll(".edge")
     d3.select(this)
       .classed("blue", d => d.colour == 1)
       .classed("red", d => d.colour == 2);
-    if(checkWin()) {
+    //old code was checking after each click
+    /*if(checkWin()) {
       leveltext.classed("hidden", false);
       leveltext.html(`<h1>You won this level!</h1>`);
-    };
+    };*/
   })
   ;
 
@@ -233,6 +235,14 @@ const vertex = graph.selectAll(".vertex")
   .attr("cx", d => x(d.x))
   .attr("cy", d => y(d.y));
 
+//(I'm done/next level) button code
+const c = nextButton.on("click", () => {
+    console.log("Clicked");
+});
+    /*if(checkWin()) {
+      leveltext.classed("hidden", false);
+      leveltext.html(`<h1>You won this level!</h1>`);
+    };*/
 </script>
 
 </body>
