@@ -22,7 +22,7 @@
     .red { stroke: red;}
     .vertex { fill: #999;}
     .hidden {display:none;}
-    /*     HERE Add a nex class for edges to highligh them, then use edge.classed() */
+    .highlight{filter: drop-shadow(0 0 10px rgb(255, 0, 0));}
 
     .nav {
       list-style-type: none;
@@ -47,9 +47,7 @@
         pointer-events:none;
     }    
 
-    .highlight{
-      filter: drop-shadow(0 0 10px rgb(255, 0, 0));
-    }
+
 
     a {
       text-decoration: none;
@@ -191,7 +189,7 @@ function checkWin() { //return boolean,color,e0,e1,e2
     for(var j=i+1; j < numVertices; j++) {
       var e0 = edgeByIndex[i*numVertices+j];
       if(e0.colour == 0) {
-        e0.classed("highlight",true)
+        e0.classed("highlight",true);
         return [false,0,i,j,0]; 
       }
     }
