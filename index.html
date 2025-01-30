@@ -175,7 +175,9 @@ for(var i=0; i < numVertices-1; i++) {
     var newEdge = {
       from: vertices[i],
       to: vertices[j],
-      colour: 0
+      colour: 0,
+      vertexi: i,
+      vertexj: j
     }
     edges.push(newEdge);
     edgeByIndex[i*numVertices+j] = newEdge;
@@ -215,7 +217,7 @@ function checkWin() { //return boolean,color,e0,e1,e2
 const edge = graph.selectAll(".edge")
   .data(edges)
   .join("line")
-  .attr("id",edge)
+  .attr("id",d.vertexi)
   .attr("class", "edge")
   .attr("x1", d=>x(d.from.x))
   .attr("x2", d=>x(d.to.x))
