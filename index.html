@@ -191,7 +191,7 @@ function checkWin() { //return boolean,color,e0,e1,e2
     for(var j=i+1; j < numVertices; j++) {
       var e0 = edgeByIndex[i*numVertices+j];
       if(e0.colour == 0) {
-        return [false,0,e0,0,0]; 
+        return {false,0,e0,0,0}; 
       }
     }
   }
@@ -204,13 +204,13 @@ function checkWin() { //return boolean,color,e0,e1,e2
         var e2 = edgeByIndex[k*numVertices+i];
         if(e0.colour == e1.colour && e0.colour == e2.colour)
         {
-          return [false,e0.colour,e0,e1,e2]; 
+          return {false,e0.colour,e0,e1,e2}; 
         }
       }
     }
   }
 
-  return [true,0,0,0,0];
+  return {true,0,0,0,0};
 }
 
 // Add lines for edges
