@@ -217,7 +217,7 @@ function checkWin() { //return boolean,color,e0,e1,e2
 const edge = graph.selectAll(".edge")
   .data(edges)
   .join("line")
-  .attr("id",d.vertexi)
+  .attr("id",d=>d.vertexi)
   .attr("class", "edge")
   .attr("x1", d=>x(d.from.x))
   .attr("x2", d=>x(d.to.x))
