@@ -274,7 +274,8 @@ const c = nextButton.on("click", () => {
         var e1 = document.getElementById(id1);
         var e2 = document.getElementById(id2);
         var e3 = document.getElementById(id3);
-        if(check[1]==1){txthigh = "highlightblue"}else{txthigh = "highlightred"}
+        //applying red highliight to blue, and vice-versa
+        if(check[1]==1){txthigh = "highlightred"}else{txthigh = "highlightblue"}
         d3.select(e1).classed(txthigh,true);
         d3.select(e2).classed(txthigh,true);
         d3.select(e3).classed(txthigh,true);
