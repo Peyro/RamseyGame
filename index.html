@@ -191,6 +191,7 @@ function checkWin() { //return boolean,color,e0,e1,e2
     for(var j=i+1; j < numVertices; j++) {
       var e0 = edgeByIndex[i*numVertices+j];
       if(e0.colour == 0) {
+        e0.classed("highlight",true)
         return [false,0,i,j,0]; 
       }
     }
