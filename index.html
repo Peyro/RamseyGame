@@ -83,6 +83,7 @@
 </ul>  
   
 <div id="leveltext"></div>  
+<svg id="triangles"></svg>
 <ul id="startButton" class="nav">
   <li id="start"><a href='?level=1'>Start Game</a></li>
 </ul>  
@@ -112,6 +113,8 @@ leveltext.style("width", size+"px");
 const buttons = d3.select("#buttons");
 const startButton = d3.select("#startButton");
 
+const forbiddenTriangles = d3.select("#triangle");
+
 const prevText = "Previous Level";
 const resetText = "Reset";
 const nextText = "Next Level";
@@ -133,7 +136,7 @@ if(isNaN(level))
   leveltext.html("<h1>Welcome to Ramsey game!</h1>\
   Colour each edge red or blue and avoid monochromatic triangles!<br/>");
 
-  leveltext.append("svg:image")
+  forbiddenTriangles.append("svg:image")
     .attr('x', -9)
     .attr('y', -12)
     .attr('width', 20)
@@ -142,6 +145,7 @@ if(isNaN(level))
   
 } else { /*other levels*/
   numVertices = level+2;
+  forbiddenTriangles.classed("hidden", true);
 
   leveltext.classed("hidden", true);
   //leveltext.html("<h3>Level "+level+"</h3>");
