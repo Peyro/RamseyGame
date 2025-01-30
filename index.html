@@ -34,13 +34,18 @@
     
     .nav li {
       background-color: #4CAF50;
-      color: #ccc;
+      color: white;
       display: inline-block;
       font-size: 20px;
       margin: 0;
       padding: 10px 10px;
       cursor: pointer;
     }
+
+    //for disabling click on button 'I'm done'
+    .disabled{
+        pointer-events:none;
+    }    
 
     a {
       text-decoration: none;
@@ -108,8 +113,9 @@ const buttons = d3.select("#buttons");
 const startButton = d3.select("#startButton");
 
 const prevText = "Previous Level";
-const nextText = "I'm done!"; //Next level is used for "I'm done" and "Next Level"
 const resetText = "Reset";
+const nextText = "Next Level";
+const doneText = "I am done!";
 
 const prevButton = d3.select("#prev");
 const resetButton = d3.select("#reset");
@@ -138,7 +144,7 @@ if(isNaN(level))
 
   resetButton.html(`<a href='?level=${level}'>`+resetText+`</a>`);
   // nextButton.html(`<a href='?level=${level+1}'>`+nextText+`</a>`);
-  nextButton.html(nextText);
+  nextButton.html(doneText);
   
   
   if(level==1){
@@ -219,11 +225,6 @@ const edge = graph.selectAll(".edge")
     d3.select(this)
       .classed("blue", d => d.colour == 1)
       .classed("red", d => d.colour == 2);
-    //old code was checking after each click
-    /*if(checkWin()) {
-      leveltext.classed("hidden", false);
-      leveltext.html(`<h1>You won this level!</h1>`);
-    };*/
   })
   ;
 
@@ -242,6 +243,8 @@ const c = nextButton.on("click", () => {
     if(checkWin()) {
       leveltext.classed("hidden", false);
       leveltext.html(`<h1>You won this level!</h1>`);
+      nextButton.classed("disabled",true);
+      nextButton.html(`<a href='?level=${level+1}'>`+nextText+`</a>`);
     };
 });
 
