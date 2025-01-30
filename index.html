@@ -237,6 +237,9 @@ const edge = graph.selectAll(".edge")
     d3.select(this)
       .classed("blue", d => d.colour == 1)
       .classed("red", d => d.colour == 2);
+      .classed(highlightred,false); //we remove the highlight class
+      .classed(highlightblue,false);
+      .classed(highlightwhite,false);
   })
   ;
 
