@@ -191,7 +191,7 @@ function checkWin() { //return boolean,color,e0,e1,e2
     for(var j=i+1; j < numVertices; j++) {
       var e0 = edgeByIndex[i*numVertices+j];
       if(e0.colour == 0) {
-        return {false,0,e0,0,0}; 
+        return [false,0,e0,0,0]; 
       }
     }
   }
@@ -204,13 +204,13 @@ function checkWin() { //return boolean,color,e0,e1,e2
         var e2 = edgeByIndex[k*numVertices+i];
         if(e0.colour == e1.colour && e0.colour == e2.colour)
         {
-          return {false,e0.colour,e0,e1,e2}; 
+          return [false,e0.colour,e0,e1,e2]; 
         }
       }
     }
   }
 
-  return {true,0,0,0,0};
+  return [true,0,0,0,0];
 }
 
 // Add lines for edges
@@ -248,8 +248,8 @@ const vertex = graph.selectAll(".vertex")
 
 //(I'm done/next level) button code
 const c = nextButton.on("click", () => {
-    const { result, color, e0, e1, e2 } = checkWin();
-    if(result) {
+    const check = checkWin(); //boolean, color, e0,e1,e2
+    if(check[0]) {
       leveltext.classed("hidden", false);
       leveltext.html(`<h2>You won this level!</h2>`);
       nextButton.classed("disabled",true);
@@ -257,7 +257,7 @@ const c = nextButton.on("click", () => {
     } else {
       leveltext.classed("hidden", false);
       leveltext.html(`<h2>No you're not!</h2>`);   
-      console.log( color, e0, e1, e2)
+      console.log( check)
     };
 });
 
