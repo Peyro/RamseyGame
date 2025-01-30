@@ -20,7 +20,7 @@
           -webkit-tap-highlight-color: rgba(0,0,0,0);}
     .blue { stroke: blue;}
     .red { stroke: red;}
-    .green { stroke: green;} //tests
+    .green { stroke: green;} 
     .vertex { fill: #999;}
     .hidden {display:none;}
     .highlight{filter: drop-shadow(0 0 10px rgb(255, 0, 0));}
@@ -261,10 +261,10 @@ const c = nextButton.on("click", () => {
       leveltext.html(`<h2>No you're not!</h2>`);   
       console.log(check);
       if(check[1]==0){ //there is a white edge
-        id = [check[2],check[3]]
+        id = [check[2],check[3]];
         var e = document.getElementById(id);
         //e.classed("highlight",true);
-        console.log(e)
+        console.log(e);
         e.classed("green", true); //test
       } 
     };
