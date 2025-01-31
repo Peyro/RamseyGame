@@ -91,7 +91,7 @@
 <ul id="startButton" class="nav">
   <li id="start"><a href='?level=1'>Start Game</a></li>
 </ul>  
-<div id="copyright">Copyright: S.Pfannerer-Mittas, T.Lesgourgues</div>
+<div id="copyright"></div>
   
 <script>
  // get level number from url
@@ -116,6 +116,9 @@ const leveltext = d3.select("#leveltext");
 leveltext.style("width", size+"px");
 const buttons = d3.select("#buttons");
 const startButton = d3.select("#startButton");
+
+const copyright = d3.select("#copyright");
+const copyrightText = "Copyright: S.Pfannerer-Mittas, T.Lesgourgues";
   
 const prevText = "Previous Level";
 const resetText = "Reset";
@@ -156,7 +159,7 @@ if(isNaN(level))
   startButton.classed("hidden", true);
 
   resetButton.html(`<a href='?level=${level}'>`+resetText+`</a>`);
-  // nextButton.html(`<a href='?level=${level+1}'>`+nextText+`</a>`);
+  copyright.html(`<a href='?level=${level+1}'>`+copyrightText+`</a>`);
   nextButton.html(doneText);
   
   
