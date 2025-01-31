@@ -160,7 +160,7 @@ if(isNaN(level))
 
   resetButton.html(`<a href='?level=${level}'>`+resetText+`</a>`);
   copyright.html(`<a href='?level=${level+1}'>`+copyrightText+`</a>`);
-  d3.select("copyright").style("cursor", "none");
+  // d3.select("copyright").style("cursor", "none"); I wanted to hide the cursor, not working
   nextButton.html(doneText);
   
   
