@@ -196,15 +196,6 @@ for(var i=0; i < numVertices-1; i++) {
 
 // function to test if won
 function checkWin() { //return boolean,color,e0,e1,e2
-  for(var i=0; i < numVertices-1; i++) {
-    for(var j=i+1; j < numVertices; j++) {
-      var e0 = edgeByIndex[i*numVertices+j];
-      if(e0.colour == 0) {
-        return [false,0,i,j,0]; 
-      }
-    }
-  }
-
   for(var i=0; i < numVertices-2; i++) {
     for(var j=i+1; j < numVertices-1; j++) {
       var e0 = edgeByIndex[i*numVertices+j];
@@ -218,7 +209,15 @@ function checkWin() { //return boolean,color,e0,e1,e2
       }
     }
   }
-
+  
+  for(var i=0; i < numVertices-1; i++) {
+    for(var j=i+1; j < numVertices; j++) {
+      var e0 = edgeByIndex[i*numVertices+j];
+      if(e0.colour == 0) {
+        return [false,0,i,j,0]; 
+      }
+    }
+  }
   return [true,0,0,0,0];
 }
 
