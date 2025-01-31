@@ -159,7 +159,8 @@ if(isNaN(level))
   startButton.classed("hidden", true);
 
   resetButton.html(`<a href='?level=${level}'>`+resetText+`</a>`);
-  copyright.html(`<a href='?level=${level+1}' cursor="arrow">`+copyrightText+`</a>`);
+  copyright.html(`<a href='?level=${level+1}'>`+copyrightText+`</a>`);
+  d3.select("copyright").style("cursor", "none");
   nextButton.html(doneText);
   
   
