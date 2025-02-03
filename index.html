@@ -274,7 +274,7 @@ const vertex = graph.selectAll(".vertex")
   .attr("cy", d => y(d.y))
   .on("click", function(event,d) {
     if(level==4){proof()}
-  };
+  });
 
 //(I'm done/next level) button code
 const c = nextButton.on("click", () => {
