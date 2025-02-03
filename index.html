@@ -309,10 +309,20 @@ const c = nextButton.on("click", () => {
       }
     };
 });
-
+  
+var bool_hide;
 function proof(){ //used to prove the K6 case, hiding useless edges
-  d3.select(document.getElementById([0,1])).classed('hidden',true);
-  d3.select(document.getElementById([0,2])).classed('hidden',true);
+
+  bool_hide = d3.select(document.getElementById([0,1])).classed('hidden');
+  d3.select(document.getElementById([0,1])).classed('hidden',!bool_hide);
+  d3.select(document.getElementById([0,2])).classed('hidden',!bool_hide);
+  d3.select(document.getElementById([0,3])).classed('hidden',!bool_hide);
+  d3.select(document.getElementById([0,4])).classed('hidden',!bool_hide);
+  d3.select(document.getElementById([0,5])).classed('hidden',!bool_hide);
+  d3.select(document.getElementById([1,4])).classed('hidden',!bool_hide);
+  d3.select(document.getElementById([2,4])).classed('hidden',!bool_hide);
+  d3.select(document.getElementById([3,4])).classed('hidden',!bool_hide);
+  d3.select(document.getElementById([4,5])).classed('hidden',!bool_hide);
 }
 
 </script>
