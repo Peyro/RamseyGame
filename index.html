@@ -311,7 +311,8 @@ const c = nextButton.on("click", () => {
 });
 
 function proof(){ //used to prove the K6 case, hiding useless edges
-   d3.select(document.getElementById([0,1])).classed(hidden,true);
+  d3.select(document.getElementById([0,1])).classed('hidden',true);
+  d3.select(document.getElementById([0,2])).classed('hidden',true);
 }
 
 </script>
